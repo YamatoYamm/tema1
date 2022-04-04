@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)"
+options: "2b5e44d00e5aaf869086c162b892b3a75ce712ed92a4b0cc36331011896ffae3"
+build_start_time: [1649085571, 875982999]
+build_end_time: [1649085573, 212326049]
+inputs:
+  "/Users/catalinpresneanu/IdeaProjects/tema1/ios/Runner/AppDelegate.swift": [1648486804, 0]
