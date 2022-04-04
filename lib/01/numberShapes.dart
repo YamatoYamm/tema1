@@ -61,52 +61,52 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        floatingActionButton: Builder(
-          builder: (context) {
-            return FloatingActionButton(
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.white,
-              onPressed: () {
-                _number = int.parse(_controller.text);
-                for(int i = 1; i < (_number/2)+1; i++) {
-                  if(_number == i * i) {
-                    _square = true;
-                  }
+        floatingActionButton: Builder(builder: (context) {
+          return FloatingActionButton(
+            backgroundColor: Colors.blue,
+            foregroundColor: Colors.white,
+            onPressed: () {
+              _number = int.parse(_controller.text);
+              for (int i = 1; i < (_number / 2) + 1; i++) {
+                if (_number == i * i) {
+                  _square = true;
                 }
-                _cubeRoot = pow(_number, 1.0/3.0).round();
-                if(_cubeRoot * _cubeRoot * _cubeRoot == _number) {
-                  _cubic = true;
-                }
+              }
+              _cubeRoot = pow(_number, 1.0 / 3.0).round();
+              if (_cubeRoot * _cubeRoot * _cubeRoot == _number) {
+                _cubic = true;
+              }
 
-                if(_square && _cubic) {
-                  _message = "Number ${_controller.text} is both SQUARE and TRIANGULAR.";
-                } else if(_square) {
-                  _message = "Number ${_controller.text} is SQUARE.";
-                } else if(_cubic) {
-                  _message = "Number ${_controller.text} is TRIANGULAR.";
-                } else {
-                  _message = "Number ${_controller.text} is neither TRIANGULAR or SQUARE.";
-                }
+              if (_square && _cubic) {
+                _message =
+                    "Number ${_controller.text} is both SQUARE and TRIANGULAR.";
+              } else if (_square) {
+                _message = "Number ${_controller.text} is SQUARE.";
+              } else if (_cubic) {
+                _message = "Number ${_controller.text} is TRIANGULAR.";
+              } else {
+                _message =
+                    "Number ${_controller.text} is neither TRIANGULAR or SQUARE.";
+              }
 
-                _square = false;
-                _cubic = false;
+              _square = false;
+              _cubic = false;
 
-                showDialog();
+              showDialog();
 
-                setState(() {
-                  _controller.text = '';
-                });
-              },
-              child: const Icon(Icons.done),
-            );
-          }
-        ),
+              setState(() {
+                _controller.text = '';
+              });
+            },
+            child: const Icon(Icons.done),
+          );
+        }),
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
     );
   }
-  void showDialog()
-  {
+
+  void showDialog() {
     showCupertinoDialog(
       context: context,
       builder: (context) {
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
           actions: [
             CupertinoDialogAction(
               child: const Text("OK"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).pop();
               },
             )
@@ -126,4 +126,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
