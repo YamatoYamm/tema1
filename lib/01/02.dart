@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(FlutterApp());
+  runApp(const FlutterApp());
 }
 
 class FlutterApp extends StatelessWidget {
@@ -12,7 +12,7 @@ class FlutterApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       title: "Currency Convertor",
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -25,7 +25,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   final TextEditingController _controller = TextEditingController();
   String _result = '';
 
@@ -34,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     return Form(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Currency Convertor"),
+          title: const Text("Currency Convertor"),
         ),
         body: Column(
           children: <Widget>[
@@ -48,35 +47,32 @@ class _HomePageState extends State<HomePage> {
                   hintText: "enter the amount in EUR",
                 ),
                 validator: (String? value) {
-
-                  if(value == null || value.isEmpty) {
+                  if (value == null || value.isEmpty) {
                     return 'Please enter a number';
                   }
                   final double? result = double.tryParse(value);
-                  if(result == null) {
+                  if (result == null) {
                     return 'please enter a number';
                   }
                   return null;
                 },
               ),
             ),
-            Builder(
-              builder: (BuildContext context) {
-                return ElevatedButton(
-                      onPressed: () {
-                        final bool valid = Form.of(context)!.validate();
-                        if(valid) {
-                          final double value = double.parse(_controller.text);
-                          final double resultValue = value * 5;
-                          setState(() {
-                            _result = '${resultValue.toStringAsFixed(2)} RON';
-                          });
-                        }
-                      },
-                      child: const Text('Convert!'),
-                );
-              }
-            ),
+            Builder(builder: (BuildContext context) {
+              return ElevatedButton(
+                onPressed: () {
+                  final bool valid = Form.of(context)!.validate();
+                  if (valid) {
+                    final double value = double.parse(_controller.text);
+                    final double resultValue = value * 5;
+                    setState(() {
+                      _result = '${resultValue.toStringAsFixed(2)} RON';
+                    });
+                  }
+                },
+                child: const Text('Convert!'),
+              );
+            }),
             Text(
               _result,
             )
