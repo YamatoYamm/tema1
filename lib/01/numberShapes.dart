@@ -78,15 +78,13 @@ class _HomePageState extends State<HomePage> {
               }
 
               if (_square && _cubic) {
-                _message =
-                    "Number ${_controller.text} is both SQUARE and TRIANGULAR.";
+                _message = "Number ${_controller.text} is both SQUARE and TRIANGULAR.";
               } else if (_square) {
                 _message = "Number ${_controller.text} is SQUARE.";
               } else if (_cubic) {
                 _message = "Number ${_controller.text} is TRIANGULAR.";
               } else {
-                _message =
-                    "Number ${_controller.text} is neither TRIANGULAR or SQUARE.";
+                _message = "Number ${_controller.text} is neither TRIANGULAR or SQUARE.";
               }
 
               _square = false;

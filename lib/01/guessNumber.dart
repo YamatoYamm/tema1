@@ -101,25 +101,18 @@ class _HomePageState extends State<HomePage> {
                         Builder(builder: (context) {
                           return ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.grey),
+                              backgroundColor: MaterialStateProperty.all(Colors.grey),
                             ),
                             onPressed: () {
                               if (_buttonText == 'Guess') {
                                 setState(() {
-                                  if (int.tryParse(_controller.text) ==
-                                      int.tryParse(_number)) {
-                                    _message =
-                                        "You tried ${_controller.text}, you guessed right.";
+                                  if (int.tryParse(_controller.text) == int.tryParse(_number)) {
+                                    _message = "You tried ${_controller.text}, you guessed right.";
                                     showDialog();
-                                  } else if (int.parse(_controller.text) >
-                                      int.parse(_number)) {
-                                    _message =
-                                        "You tried ${_controller.text}, try lower";
-                                  } else if (int.parse(_controller.text) <
-                                      int.parse(_number)) {
-                                    _message =
-                                        "You tried ${_controller.text}, try higher";
+                                  } else if (int.parse(_controller.text) > int.parse(_number)) {
+                                    _message = "You tried ${_controller.text}, try lower";
+                                  } else if (int.parse(_controller.text) < int.parse(_number)) {
+                                    _message = "You tried ${_controller.text}, try higher";
                                   }
                                 });
                                 _controller.text = '';
@@ -127,8 +120,7 @@ class _HomePageState extends State<HomePage> {
                                 setState(() {
                                   _message = '';
                                   _buttonText = 'Guess';
-                                  _number =
-                                      (Random().nextInt(100) + 1).toString();
+                                  _number = (Random().nextInt(100) + 1).toString();
                                   // nu stiu sa dau disable la texformfield dupa ce apas ok
                                 });
                               }
