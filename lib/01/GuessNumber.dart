@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
       builder: (context) {
         return CupertinoAlertDialog(
           title: const Text("You guessed right"),
-          content: Text("It was ${_number}"),
+          content: Text("It was $_number"),
           actions: [
             CupertinoDialogAction(
                 child: const Text("Try again!"),
